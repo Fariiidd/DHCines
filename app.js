@@ -1,6 +1,12 @@
 const http = require("http");
 const moduloHome = require("./src/home");
 const moduloCartelera = require("./src/En-Cartelera");
+const moduloMasVotadas = require("./src/mas-votadas");
+const moduloSucursales = require("./src/sucursales");
+const moduloContactos = require("./src/contacto");
+const moduloPreguntas = require("./src/preguntas-frecuntes");
+
+
 // Servidor
 http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
@@ -16,16 +22,16 @@ http.createServer((req, res) => {
             res.end(JSON.stringify(moduloCartelera));
             break;
         case '/mas-votadas':
-            res.end('Más Votadas');
+            res.end(JSON.stringify(moduloMasVotadas));
             break;
         case '/sucursales':
-            res.end('Sucursales');
+            res.end(JSON.stringify(moduloSucursales));
             break;
         case '/contacto':
-            res.end('Contacto');
+            res.end(JSON.stringify(moduloContactos));
             break;
         case '/preguntas-frecuentes':
-            res.end('Preguntas Frecuentes');
+            res.end(JSON.stringify(moduloPreguntas));
             break;
         default:
             res.end('404 not found')
